@@ -1,0 +1,147 @@
+:host {
+    display: block;
+    padding: 4rem 2rem 6rem;
+    background-color: var(--dark-gray);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 50% 100%, 0% 95%);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.title {
+    font-size: 4rem;
+    padding: 0 0 2rem;
+    text-align: center;
+    font-style: italic;
+    color: var(--green);
+    text-decoration: underline;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.name {
+    grid-row: 3/4;
+    padding: 10px;
+    color: white;
+    font-size: 2rem;
+    margin-top: 3rem;
+    outline: 1px solid white;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    .designation {
+        color:chocolate
+    }
+}
+
+.name span:nth-of-type(1) span {
+    font-size: 3rem;
+    color: var(--green);
+}
+
+.name span:nth-of-type(2) {
+    display: inline-block;
+    color: var(--green);
+    font-size: 4rem;
+    font-weight: bold;
+    padding: 10px 0;
+    letter-spacing: 8px;
+    text-shadow: 10px 8px 10px var(--black);
+}
+.name span:nth-of-type(3) {
+    display: inline-block;
+    color: var(--green);
+    font-size: 4rem;
+    font-weight: bold;
+    padding: 10px 0;
+    letter-spacing: 8px;
+    text-shadow: 10px 8px 10px var(--black);
+}
+
+.profile {
+    width: 300px;
+    // height: 300px;
+    grid-row: 2/3;
+    margin: 0 auto;
+    position: relative;
+    // clip-path: inset(0 round 0 0 25%);
+    font-size: 28px;
+    line-height: 2;
+    margin-top: auto;
+    margin-bottom: auto;
+    div {
+        overflow-wrap: anywhere;
+    }
+
+    a {
+        color: white;
+        margin-right: 10px;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: chocolate;
+    }
+
+    .bx {
+        font-size: 36px;
+    }
+}
+
+.profile .profile-bg {
+    height: 75%;
+    width: 100%;
+    bottom: 0%;
+    position: absolute;
+    background-color: #69F0AE;
+    clip-path: inset(0 round 50% 0 0);
+}
+
+.profile img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: 0;
+    clip-path: circle();
+}
+
+/* PC */
+
+:host.pc {
+    padding: 1rem 2rem 10rem;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
+}
+
+:host.pc .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 4fr;
+}
+
+:host.pc .title {
+    grid-column: 1/2;
+    padding: 0%;
+    margin: auto;
+    font-size: 5rem;
+    font-style: normal;
+    text-decoration: none;
+}
+
+:host.pc .profile {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 0;
+    // height: 600px;
+}
+
+:host.pc .name {
+    grid-row: 2/3;
+    // width: 600px;
+    // margin: auto;
+    padding: 2em;
+    margin-top: auto;
+    margin-left: 0;
+    margin-bottom: auto;
+    // height: max-content;
+}
