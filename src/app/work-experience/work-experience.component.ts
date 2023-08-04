@@ -13,8 +13,8 @@ export class WorkExperienceComponent implements OnInit {
       company: 'Clarivate Analitics',
       duration: 'May 2021 - Till Date',
       description: [
-        'Working to expand google in remote areas.',
-        'Working to develop new technologies to make life easier.',
+        'Working on Patents domain, building effecient UI and Coud services to process Patent Data.',
+        'Working on various path breaking applications and part of complex eco system.',
       ],
     },
     {
@@ -22,8 +22,8 @@ export class WorkExperienceComponent implements OnInit {
       company: 'A + E Networks',
       duration: 'Sept 2019 - May 2021',
       description: [
-        'Involved in various Public talks',
-        'Open Sourced Google VP8',
+        'Involved in leading team to design best practices.',
+        'Part of Research team to innovate and introduce reliable architecture.',
       ],
     },
     {
@@ -31,8 +31,8 @@ export class WorkExperienceComponent implements OnInit {
       company: 'Adapt Motors',
       duration: 'Feb 2016 - Sept 2019',
       description: [
-        'Included Android in Google',
-        'Worked on Development of Google Maps',
+        'Worked with OEMs and end users to understand and design the application.',
+        'Worked on Development of CDP for the companu',
       ],
     },
     {
@@ -40,8 +40,8 @@ export class WorkExperienceComponent implements OnInit {
       company: 'AIG',
       duration: 'Dec 2014 - Dec 2016',
       description: [
-        'Worked on Google Toolbar',
-        'Involved in team to develop Google Chrome',
+        'Learned new technologies and had good exposure to Insurance domain.',
+        'Involved in team to build widgets which can be reused anywhere.',
       ],
     },
     {
@@ -49,8 +49,8 @@ export class WorkExperienceComponent implements OnInit {
       company: 'JDPA',
       duration: 'Mar 2013 - Dec 2014',
       description: [
-        'Worked with multiple teams to develop desktop and web applications',
-        'Worked on different technologies such as (Dotnet, C++, Java)',
+        'Worked with multiple teams to develop mobile and web applications.',
+        'Learned how to be a good team player and what it takes to deliver.',
       ],
     },
   ];

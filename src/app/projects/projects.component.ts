@@ -10,7 +10,7 @@ export class ProjectsComponent implements OnInit {
   projects: Project[] = [
     {
       title: 'Singularity',
-      technologies: 'Angular 12, React Js, Java, Aws EC2, S3, SQS, System Manager, SonarQube, Jenkins, GIT, Postgres SQL, Python, Material, Node',
+      technologies: 'React Js, Angular 12, Java, Node, Aws EC2, S3, SQS, System Manager, SonarQube, Jenkins, GIT, Postgres SQL, Python, Material, Node',
       description: [
         'I am responsible for leading the team and delivering the product on time.',
         'I am responsible for Code Reviews and for performance & security of application.',
@@ -19,7 +19,7 @@ export class ProjectsComponent implements OnInit {
     },
     {
       title: 'Armada',
-      technologies: 'Angular 8, React, Vue Js, Python, Aws, SonarQube, ADO, S3,DJAGO, RDS, Postgres SQL, PrimeNg, Redux, Rxjs, Azure',
+      technologies: 'Angular 8, React, Vue Js, Java, Node, Python, Aws, SonarQube, ADO, S3,DJAGO, RDS, Postgres SQL, PrimeNg, Redux, Rxjs, Azure',
       description: [
         'I am responsible for leading the team on delivering the product on time.',
         'I am responsible for Code Reviews and for performance & security of application.',
