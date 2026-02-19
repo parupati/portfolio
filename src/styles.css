@@ -255,6 +255,12 @@ body {
   to   { transform: rotate(360deg); }
 }
 
+/* ─── Blink caret (hero role text) ─── */
+@keyframes blink-caret {
+  0%, 100% { border-color: var(--purple-light); }
+  50%       { border-color: transparent; }
+}
+
 /* ─── Theme toggle icon animation ─── */
 @keyframes spin-in {
   from { transform: rotate(-90deg) scale(0.5); opacity: 0; }
