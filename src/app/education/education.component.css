@@ -1,38 +1,101 @@
 :host {
-    display: block;
-    color: white;
-    padding: 3rem 1rem;
+  display: block;
+  background: var(--bg-primary);
+  padding: 5rem 2rem;
+  position: relative;
 }
 
-section {
-    margin-top: 2rem;
+:host::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(6,182,212,0.5), transparent);
 }
 
-section h2 {
-    color: var(--green);
+.edu-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-section h4 {
-    color: var(--gray-light);
+/* ─── Education grid ─── */
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
 }
 
-/* PC */
-:host.pc section {
-    width: auto;
-    position: relative;
-    margin-left: 4rem;
-    display: grid;
-    gap: 0 1.5rem;
-    grid-template-columns: 1fr 5fr;
-    grid-template-rows: repeat(3, 1fr);
+.edu-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem;
 }
 
-:host.pc section h4:nth-child(4) {
-    grid-row: 1/4;
-    margin-top: 0%;
-    display: flex;
-    font-size: 1.5rem;
-    align-items: center;
-    justify-content: center;
-    border-right: 1px solid white;
+.edu-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(59,130,246,0.2));
+  border: 1px solid rgba(124,58,237,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.edu-icon i {
+  font-size: 1.5rem;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.edu-info {
+  flex: 1;
+}
+
+.edu-course {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.edu-institute {
+  font-size: 0.9rem;
+  color: var(--purple-light);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.edu-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.edu-duration,
+.edu-score {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.edu-duration i,
+.edu-score i {
+  font-size: 0.9rem;
+  color: var(--cyan);
+}
+
+/* ─── Desktop ─── */
+@media (min-width: 768px) {
+  .edu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

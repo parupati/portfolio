@@ -8,16 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class PersonalInformationComponent implements OnInit {
   myData: string[][] = [
     ['Name', 'Madhukar Reddy Parupati'],
-    ['DOB', '3<sup>rd</sup> Jan, 1991'],
-    ['Work Exp', '10 Years'],
+    ['Work Exp', '13 Years'],
     ['Education', 'B.Tech (2012)'],
     ['Interests', 'Traveling'],
   ];
 
   aboutMe: string[] = [
-    'Hi there! I am a passionate and creative Frontend Developer with a strong eye for design and a love for crafting beautiful and intuitive user experiences.',
-    'I specialize in turning ideas into reality through code and enjoy the process of bringing life to websites and web applications.',
-    'have solid 10 years experience in designing and developing Web Applications using Angular, React, Java and AWS.'
+    'Hi there! I am a passionate Full Stack Developer and AI/ML enthusiast with a strong eye for design and a love for crafting beautiful, intuitive user experiences.',
+    'I specialize in turning ideas into reality through code and enjoy building scalable web applications as well as intelligent AI-powered solutions.',
+    'I have 13 years of experience designing and developing web applications using Angular, React, Java, and AWS — and more recently, exploring AI/ML, LLM agents, RAG pipelines, and data science.'
   ];
 
   constructor() {}

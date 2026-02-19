@@ -1,19 +1,55 @@
-<div class="container">
-    <h1 class="title">
-        <span>Personal Information</span>
-    </h1>
+<div class="about-wrapper">
+  <div class="section-header">
+    <span class="section-label">Get To Know Me</span>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-divider"></div>
+  </div>
 
-    <table>
-        <tbody>
-            <tr *ngFor="let row of myData">
-                <td *ngFor="let col of row" [innerHtml]="col"></td>
-            </tr>
-        </tbody>
-    </table>
+  <div class="about-grid">
+    <div class="about-text">
+      <p *ngFor="let sentence of aboutMe" class="about-paragraph">
+        {{ sentence }}
+      </p>
 
-    <section>
-        <p *ngFor="let sentence of aboutMe">
-            {{sentence}}
-        </p>
-    </section>
+      <div class="about-highlights">
+        <div class="highlight glass-card">
+          <i class='bx bx-code-alt'></i>
+          <div>
+            <strong>13+ Years</strong>
+            <span>Software Engineering</span>
+          </div>
+        </div>
+        <div class="highlight glass-card">
+          <i class='bx bx-layer'></i>
+          <div>
+            <strong>Full Stack & AI/ML</strong>
+            <span>Angular · React · Java · AWS · LLMs</span>
+          </div>
+        </div>
+        <div class="highlight glass-card">
+          <i class='bx bx-award'></i>
+          <div>
+            <strong>Lead Engineer</strong>
+            <span>Team Leadership & Mentorship</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-info">
+      <div class="info-card glass-card" *ngFor="let row of myData">
+        <span class="info-key">{{ row[0] }}</span>
+        <span class="info-val" [innerHtml]="row[1]"></span>
+      </div>
+
+      <div class="about-actions">
+        <a href="assets/MadhuResume.pdf" target="_blank" class="btn btn-primary">
+          <i class='bx bx-cloud-download'></i> Download Resume
+        </a>
+        <a href="https://www.linkedin.com/in/parupati/" target="_blank" class="btn btn-outline">
+          <i class='bx bxl-linkedin'></i> LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

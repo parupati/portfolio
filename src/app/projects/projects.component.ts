@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Project } from '../models/models';
 
 @Component({
@@ -6,37 +6,25 @@ import { Project } from '../models/models';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent {
   projects: Project[] = [
     {
-      title: 'Singularity',
-      technologies: 'React Js, Angular 12, Java, Node, Aws EC2, S3, SQS, System Manager, SonarQube, Jenkins, GIT, Postgres SQL, Python, Material, Node',
+      title: 'AI Agents — PRD to Architecture',
+      subtitle: 'Agentic Pre-Development Accelerator',
+      tag: 'A2A · AI Agents',
+      technologies: 'OpenAI Agents SDK, FastAPI, Python, Node.js, Express, LangChain, PlantUML, OpenAPI 3.0, PostgreSQL, Docker',
+      githubUrl: 'https://github.com/parupati/AI_Agents-prd_to_jira',
+      demoUrl: '',
       description: [
-        'I am responsible for leading the team and delivering the product on time.',
-        'I am responsible for Code Reviews and for performance & security of application.',
-        'I am responsible for Minor/Major releases and production support.'
-      ],
-    },
-    {
-      title: 'Armada',
-      technologies: 'Angular 8, React, Vue Js, Java, Node, Python, Aws, SonarQube, ADO, S3,DJAGO, RDS, Postgres SQL, PrimeNg, Redux, Rxjs, Azure',
-      description: [
-        'I am responsible for leading the team on delivering the product on time.',
-        'I am responsible for Code Reviews and for performance & security of application.',
-        'I used to mentor Junior resources.',
-        'I used to do POC on new business use cases and in new technologies'
-      ],
-    },
-    {
-      title: 'Travel Guard',
-      technologies: 'Angular Js, Java, Alfresco, PEGA, MySQL, Karma, Jasmin',
-      description: [
-        'Learned new concepts like Google Maps integration, Widzetization of an application',
-        'Take care of Release activities and Unit Test cases.',
+        'Multi-agent A2A pipeline that transforms a Product Requirements Document (PRD) into a full suite of pre-development architecture artifacts — accelerating the path from idea to engineering kickoff.',
+        'Agent 1 parses the PRD and extracts structured functional requirements; Agent 2 designs a normalized PostgreSQL schema with full SQL DDL; Agent 3 converts the schema into PlantUML ER diagrams.',
+        'Agent 4 consumes the PRD + schema to produce a complete OpenAPI 3.0.3 contract (Swagger-compatible); Agent 5 generates PlantUML sequence diagrams from the architecture — each agent feeds directly into the next.',
+        'Supports both batch and real-time streaming (SSE) modes; FastAPI backend runs in Docker on port 8000 with a Node.js/Express UI on port 3000.',
       ],
     },
   ];
-  constructor() {}
 
-  ngOnInit(): void {}
+  getTechList(technologies: string): string[] {
+    return technologies.split(',').map(t => t.trim());
+  }
 }

@@ -1,16 +1,78 @@
-<div class="container">
-    <h1>Projects</h1>
+<div class="projects-wrapper">
+  <div class="section-header">
+    <span class="section-label">What I've Built</span>
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="section-divider"></div>
+  </div>
 
-    <section *ngFor="let project of projects">
-        <h2>{{project.title}}</h2>
+  <div class="projects-grid">
+    <div class="project-card glass-card" *ngFor="let project of projects; let i = index">
 
-        <h3>
-            <span>Technologies: </span>
-            <span>{{project.technologies}}</span>
-        </h3>
+      <div class="project-top">
+        <span class="project-tag" *ngIf="project.tag">{{ project.tag }}</span>
+        <div class="project-links">
+          <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" title="View on GitHub" class="project-link">
+            <i class='bx bxl-github'></i>
+          </a>
+          <a *ngIf="project.demoUrl" [href]="project.demoUrl" target="_blank" title="Live Demo" class="project-link">
+            <i class='bx bx-link-external'></i>
+          </a>
+          <span *ngIf="!project.demoUrl" class="demo-soon" title="Demo coming soon">
+            <i class='bx bx-video'></i> Demo soon
+          </span>
+        </div>
+      </div>
 
-        <ul *ngFor="let desc of project.description">
-            <li>{{desc}}</li>
-        </ul>
-    </section>
+      <div class="project-number">0{{ i + 1 }}</div>
+      <h3 class="project-title">{{ project.title }}</h3>
+      <p class="project-subtitle">{{ project.subtitle }}</p>
+
+      <ul class="project-desc">
+        <li *ngFor="let d of project.description">{{ d }}</li>
+      </ul>
+
+      <!-- Agent pipeline diagram -->
+      <div class="pipeline" *ngIf="i === 0">
+        <div class="pipeline-step">
+          <div class="pipeline-icon"><i class='bx bx-file-blank'></i></div>
+          <span>PRD Input</span>
+        </div>
+        <div class="pipeline-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="pipeline-step">
+          <div class="pipeline-icon"><i class='bx bx-list-check'></i></div>
+          <span>Requirements</span>
+        </div>
+        <div class="pipeline-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="pipeline-step">
+          <div class="pipeline-icon"><i class='bx bx-data'></i></div>
+          <span>DB Schema</span>
+        </div>
+        <div class="pipeline-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="pipeline-step">
+          <div class="pipeline-icon"><i class='bx bx-sitemap'></i></div>
+          <span>ER Diagram</span>
+        </div>
+        <div class="pipeline-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="pipeline-step">
+          <div class="pipeline-icon"><i class='bx bx-code-curly'></i></div>
+          <span>API Contract</span>
+        </div>
+        <div class="pipeline-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="pipeline-step">
+          <div class="pipeline-icon"><i class='bx bx-transfer'></i></div>
+          <span>Sequence Diagram</span>
+        </div>
+      </div>
+
+      <div class="tech-tags">
+        <span class="tech-tag" *ngFor="let tech of getTechList(project.technologies)">{{ tech }}</span>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="projects-note">
+    <i class='bx bx-info-circle'></i>
+    More projects coming soon — currently building and will be added here.
+  </p>
 </div>

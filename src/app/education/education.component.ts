@@ -9,23 +9,17 @@ import { Education } from '../models/models';
 export class EducationComponent implements OnInit {
   educationList: Education[] = [
     {
-      institute: "JNTU - Hyderabad",
+      institute: 'The University of Texas at Austin',
+      course: 'Postgraduate Degree, Artificial Intelligence and Machine Learning',
+      duration: '2023-2024',
+      score: '',
+    },
+    {
+      institute: 'JNTU - Hyderabad',
       course: 'B.Tech in Computer Science',
       duration: '2008-2012',
       score: '70%',
     },
-    {
-      institute: 'Vikas Junior College',
-      course: 'MPC',
-      duration: '2006-2008',
-      score: '90%',
-    },
-    {
-      institute: 'Bhashyam Public School',
-      course: 'SSC',
-      duration: '2005-2006',
-      score: '90%',
-    }
   ];
 
   constructor() {}
