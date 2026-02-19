@@ -1,3 +1,6 @@
+/* ═══════════════════════════════════════════
+   DARK THEME (default)
+═══════════════════════════════════════════ */
 :root {
   --bg-primary: #08080f;
   --bg-secondary: #0d0d1a;
@@ -11,7 +14,6 @@
 
   --gradient: linear-gradient(135deg, #7c3aed, #3b82f6);
   --gradient-text: linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #06b6d4 100%);
-  --gradient-border: linear-gradient(135deg, rgba(124,58,237,0.5), rgba(59,130,246,0.5));
 
   --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
@@ -19,13 +21,52 @@
 
   --border: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(255, 255, 255, 0.15);
+  --btn-outline-border: rgba(255, 255, 255, 0.2);
 
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
   --shadow-purple: 0 10px 30px rgba(124, 58, 237, 0.3);
+
+  --blob-opacity: 0.12;
+  --pipeline-bg: rgba(0, 0, 0, 0.2);
+  --nav-scrolled-bg: rgba(8, 8, 15, 0.85);
+  --mobile-menu-bg: rgba(8, 8, 15, 0.98);
+  --scrollbar-track: #0d0d1a;
 }
 
+/* ═══════════════════════════════════════════
+   LIGHT THEME overrides
+═══════════════════════════════════════════ */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #eef2f7;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-card-hover: rgba(255, 255, 255, 0.9);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.18);
+  --btn-outline-border: rgba(0, 0, 0, 0.18);
+
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-purple: 0 10px 30px rgba(124, 58, 237, 0.15);
+
+  --blob-opacity: 0.2;
+  --pipeline-bg: rgba(0, 0, 0, 0.04);
+  --nav-scrolled-bg: rgba(248, 250, 252, 0.9);
+  --mobile-menu-bg: rgba(248, 250, 252, 0.98);
+  --scrollbar-track: #eef2f7;
+}
+
+/* ═══════════════════════════════════════════
+   BASE RESET
+═══════════════════════════════════════════ */
 * {
   margin: 0;
   padding: 0;
@@ -34,6 +75,14 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Smooth theme transition on key elements */
+body,
+.glass-card,
+.navbar,
+.mobile-menu {
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
 }
 
 body {
@@ -82,13 +131,23 @@ body {
   border-radius: 16px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease,
+              box-shadow 0.3s ease, background 0.35s ease;
 }
 
 .glass-card:hover {
   border-color: var(--border-hover);
   background: var(--bg-card-hover);
   transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Light mode: cards get a subtle shadow instead of glow */
+[data-theme="light"] .glass-card {
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="light"] .glass-card:hover {
   box-shadow: var(--shadow-md);
 }
 
@@ -120,7 +179,7 @@ body {
 .btn-outline {
   background: transparent;
   color: var(--text-primary);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--btn-outline-border);
 }
 
 .btn-outline:hover {
@@ -133,13 +192,19 @@ body {
 .tech-tag {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  background: rgba(124, 58, 237, 0.15);
-  border: 1px solid rgba(124, 58, 237, 0.3);
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.25);
   border-radius: 20px;
   font-size: 0.78rem;
   font-weight: 500;
   color: var(--purple-light);
   transition: all 0.2s ease;
+}
+
+[data-theme="light"] .tech-tag {
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.2);
+  color: var(--purple);
 }
 
 .tech-tag:hover {
@@ -148,15 +213,18 @@ body {
 }
 
 /* ─── Scrollbar ─── */
-::-webkit-scrollbar {
-  width: 6px;
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 3px; }
+
+/* ─── Blob opacity via variable ─── */
+.blob {
+  opacity: var(--blob-opacity) !important;
 }
-::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--purple);
-  border-radius: 3px;
+
+/* ─── Pipeline bg via variable ─── */
+.pipeline {
+  background: var(--pipeline-bg) !important;
 }
 
 /* ─── Animations ─── */
@@ -185,6 +253,12 @@ body {
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
+}
+
+/* ─── Theme toggle icon animation ─── */
+@keyframes spin-in {
+  from { transform: rotate(-90deg) scale(0.5); opacity: 0; }
+  to   { transform: rotate(0deg) scale(1);     opacity: 1; }
 }
 
 /* ─── Selection color ─── */

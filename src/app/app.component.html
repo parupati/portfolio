@@ -11,9 +11,16 @@
       <li><a href="#projects" (click)="closeMenu()">Projects</a></li>
       <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
     </ul>
-    <button class="menu-toggle" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <button class="theme-toggle" (click)="toggleTheme()"
+              [title]="isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+              aria-label="Toggle theme">
+        <i class='bx' [ngClass]="isDark ? 'bx-sun' : 'bx-moon'"></i>
+      </button>
+      <button class="menu-toggle" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
     <div class="mobile-menu" [class.open]="menuOpen">
       <a href="#home" (click)="closeMenu()">Home</a>
       <a href="#about" (click)="closeMenu()">About</a>

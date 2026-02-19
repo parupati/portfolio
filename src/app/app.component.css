@@ -10,12 +10,12 @@
 }
 
 .navbar.scrolled {
-  background: rgba(8, 8, 15, 0.85);
+  background: var(--nav-scrolled-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--border);
   padding: 0.85rem 0;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .nav-container {
@@ -34,6 +34,7 @@
   text-decoration: none;
   color: var(--text-primary);
   letter-spacing: -0.5px;
+  transition: color 0.3s ease;
 }
 
 .logo-bracket {
@@ -76,7 +77,43 @@
   width: 100%;
 }
 
-/* Hamburger */
+/* ─── Nav right-side actions ─── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ─── Theme toggle button ─── */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+  border-color: var(--purple-light);
+  color: var(--purple-light);
+  transform: rotate(15deg) scale(1.1);
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.25);
+}
+
+.theme-toggle i {
+  animation: spin-in 0.3s ease;
+}
+
+/* ─── Hamburger ─── */
 .menu-toggle {
   display: flex;
   flex-direction: column;
@@ -96,24 +133,18 @@
   transition: all 0.3s ease;
 }
 
-.menu-toggle.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile menu */
+/* ─── Mobile menu ─── */
 .mobile-menu {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(8, 8, 15, 0.98);
+  background: var(--mobile-menu-bg);
   backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
@@ -142,13 +173,15 @@
   color: var(--purple-light);
 }
 
-/* Footer */
+/* ─── Footer ─── */
 .footer {
   text-align: center;
   padding: 2rem;
   border-top: 1px solid var(--border);
   color: var(--text-muted);
   font-size: 0.85rem;
+  background: var(--bg-primary);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .footer span {
@@ -159,7 +192,7 @@
   font-weight: 600;
 }
 
-/* Desktop nav */
+/* ─── Desktop nav ─── */
 @media (min-width: 768px) {
   .nav-links {
     display: flex;

@@ -24,7 +24,7 @@
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 /* ─── Card ─── */
@@ -51,30 +51,93 @@
   transform: scaleX(1);
 }
 
+/* ─── Top row: tag + links ─── */
+.project-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(59,130,246,0.2));
+  border: 1px solid rgba(124,58,237,0.35);
+  color: var(--purple-light);
+}
+
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.project-link {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  color: var(--purple-light);
+  border-color: var(--purple-light);
+  transform: translateY(-2px);
+}
+
+.demo-soon {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px dashed rgba(255,255,255,0.15);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+}
+
+.demo-soon i {
+  font-size: 0.9rem;
+}
+
+/* ─── Content ─── */
 .project-number {
   font-family: 'Outfit', sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 900;
-  color: rgba(124, 58, 237, 0.12);
+  color: rgba(124, 58, 237, 0.1);
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   user-select: none;
 }
 
 .project-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
 }
 
-/* ─── Tech tags ─── */
-.tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
+.project-subtitle {
+  font-size: 0.9rem;
+  color: var(--cyan);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
 }
 
 /* ─── Description ─── */
@@ -83,13 +146,14 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.65rem;
+  margin-bottom: 2rem;
 }
 
 .project-desc li {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.75;
   padding-left: 1.2rem;
   position: relative;
 }
@@ -98,20 +162,109 @@
   content: '▸';
   position: absolute;
   left: 0;
-  color: var(--cyan);
+  color: var(--purple-light);
   font-size: 0.75rem;
-  top: 3px;
+  top: 4px;
+}
+
+/* ─── Agent pipeline ─── */
+.pipeline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  background: rgba(0,0,0,0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.pipeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  min-width: 70px;
+}
+
+.pipeline-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(59,130,246,0.25));
+  border: 1px solid rgba(124,58,237,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pipeline-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(124,58,237,0.3);
+  background: rgba(124,58,237,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pipeline-icon i {
+  font-size: 1.1rem;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pipeline-step span {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.pipeline-arrow {
+  color: rgba(124,58,237,0.5);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ─── Tech tags ─── */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ─── Note ─── */
+.projects-note {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.projects-note i {
+  font-size: 1rem;
+  color: var(--cyan);
 }
 
 /* ─── Desktop ─── */
-@media (min-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1100px) {
-  .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
+@media (min-width: 900px) {
+  .pipeline {
+    flex-wrap: nowrap;
   }
 }

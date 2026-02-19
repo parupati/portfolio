@@ -20,6 +20,10 @@ export interface Skill {
 
 export interface Project {
   title: string;
+  subtitle: string;
   technologies: string;
   description: string[];
+  tag?: string;
+  githubUrl?: string;
+  demoUrl?: string;
 }

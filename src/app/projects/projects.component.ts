@@ -9,34 +9,22 @@ import { Project } from '../models/models';
 export class ProjectsComponent {
   projects: Project[] = [
     {
-      title: 'Singularity',
-      technologies: 'React, Angular 12, Java, Node, AWS EC2, S3, SQS, System Manager, SonarQube, Jenkins, Git, PostgreSQL, Python, Material',
+      title: 'AI Agents — PRD to Architecture',
+      subtitle: 'Agentic Pre-Development Accelerator',
+      tag: 'A2A · AI Agents',
+      technologies: 'OpenAI Agents SDK, FastAPI, Python, Node.js, Express, LangChain, PlantUML, OpenAPI 3.0, PostgreSQL, Docker',
+      githubUrl: 'https://github.com/parupati/AI_Agents-prd_to_jira',
+      demoUrl: '',
       description: [
-        'Led cross-functional team to deliver patent-domain UI and cloud services on time.',
-        'Responsible for code reviews, performance optimization, and security of the application.',
-        'Managed minor/major releases and provided production support.',
-      ],
-    },
-    {
-      title: 'Armada',
-      technologies: 'Angular 8, React, Vue, Java, Node, Python, AWS, SonarQube, ADO, Django, RDS, PostgreSQL, PrimeNG, Redux, RxJS, Azure',
-      description: [
-        'Led team delivery of a multi-framework content management platform.',
-        'Mentored junior engineers and drove code quality through reviews.',
-        'Conducted POCs on new business use cases and emerging technologies.',
-      ],
-    },
-    {
-      title: 'Travel Guard',
-      technologies: 'AngularJS, Java, Alfresco, PEGA, MySQL, Karma, Jasmine',
-      description: [
-        'Implemented Google Maps integration and application widgetization.',
-        'Managed release activities and maintained comprehensive unit test coverage.',
+        'Multi-agent A2A pipeline that transforms a Product Requirements Document (PRD) into a full suite of pre-development architecture artifacts — accelerating the path from idea to engineering kickoff.',
+        'Agent 1 parses the PRD and extracts structured functional requirements; Agent 2 designs a normalized PostgreSQL schema with full SQL DDL; Agent 3 converts the schema into PlantUML ER diagrams.',
+        'Agent 4 consumes the PRD + schema to produce a complete OpenAPI 3.0.3 contract (Swagger-compatible); Agent 5 generates PlantUML sequence diagrams from the architecture — each agent feeds directly into the next.',
+        'Supports both batch and real-time streaming (SSE) modes; FastAPI backend runs in Docker on port 8000 with a Node.js/Express UI on port 3000.',
       ],
     },
   ];
 
   getTechList(technologies: string): string[] {
-    return technologies.split(',').map(t => t.trim()).slice(0, 8);
+    return technologies.split(',').map(t => t.trim());
   }
 }
