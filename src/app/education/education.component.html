@@ -15,7 +15,7 @@
         <p class="edu-institute">{{ edu.institute }}</p>
         <div class="edu-meta">
           <span class="edu-duration"><i class='bx bx-calendar'></i> {{ edu.duration }}</span>
-          <span class="edu-score"><i class='bx bx-trophy'></i> {{ edu.score }}</span>
+          <span class="edu-score" *ngIf="edu.score"><i class='bx bx-trophy'></i> {{ edu.score }}</span>
         </div>
       </div>
     </div>
