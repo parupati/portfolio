@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Project } from '../models/models';
 
 @Component({
@@ -6,37 +6,37 @@ import { Project } from '../models/models';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent {
   projects: Project[] = [
     {
       title: 'Singularity',
-      technologies: 'React Js, Angular 12, Java, Node, Aws EC2, S3, SQS, System Manager, SonarQube, Jenkins, GIT, Postgres SQL, Python, Material, Node',
+      technologies: 'React, Angular 12, Java, Node, AWS EC2, S3, SQS, System Manager, SonarQube, Jenkins, Git, PostgreSQL, Python, Material',
       description: [
-        'I am responsible for leading the team and delivering the product on time.',
-        'I am responsible for Code Reviews and for performance & security of application.',
-        'I am responsible for Minor/Major releases and production support.'
+        'Led cross-functional team to deliver patent-domain UI and cloud services on time.',
+        'Responsible for code reviews, performance optimization, and security of the application.',
+        'Managed minor/major releases and provided production support.',
       ],
     },
     {
       title: 'Armada',
-      technologies: 'Angular 8, React, Vue Js, Java, Node, Python, Aws, SonarQube, ADO, S3,DJAGO, RDS, Postgres SQL, PrimeNg, Redux, Rxjs, Azure',
+      technologies: 'Angular 8, React, Vue, Java, Node, Python, AWS, SonarQube, ADO, Django, RDS, PostgreSQL, PrimeNG, Redux, RxJS, Azure',
       description: [
-        'I am responsible for leading the team on delivering the product on time.',
-        'I am responsible for Code Reviews and for performance & security of application.',
-        'I used to mentor Junior resources.',
-        'I used to do POC on new business use cases and in new technologies'
+        'Led team delivery of a multi-framework content management platform.',
+        'Mentored junior engineers and drove code quality through reviews.',
+        'Conducted POCs on new business use cases and emerging technologies.',
       ],
     },
     {
       title: 'Travel Guard',
-      technologies: 'Angular Js, Java, Alfresco, PEGA, MySQL, Karma, Jasmin',
+      technologies: 'AngularJS, Java, Alfresco, PEGA, MySQL, Karma, Jasmine',
       description: [
-        'Learned new concepts like Google Maps integration, Widzetization of an application',
-        'Take care of Release activities and Unit Test cases.',
+        'Implemented Google Maps integration and application widgetization.',
+        'Managed release activities and maintained comprehensive unit test coverage.',
       ],
     },
   ];
-  constructor() {}
 
-  ngOnInit(): void {}
+  getTechList(technologies: string): string[] {
+    return technologies.split(',').map(t => t.trim()).slice(0, 8);
+  }
 }

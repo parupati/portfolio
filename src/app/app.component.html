@@ -1,9 +1,38 @@
-<baner responsive></baner>
-<personal-information responsive></personal-information>
-<div class="container">
-    <work-experience responsive></work-experience>
-    <education responsive></education>
-</div>
-<skills responsive></skills>
-<projects responsive></projects>
-<contact responsive></contact>
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="nav-container">
+    <a class="nav-logo" href="#home">
+      <span class="logo-bracket">&lt;</span>MRP<span class="logo-bracket">/&gt;</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home" (click)="closeMenu()">Home</a></li>
+      <li><a href="#about" (click)="closeMenu()">About</a></li>
+      <li><a href="#skills" (click)="closeMenu()">Skills</a></li>
+      <li><a href="#experience" (click)="closeMenu()">Experience</a></li>
+      <li><a href="#projects" (click)="closeMenu()">Projects</a></li>
+      <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
+    </ul>
+    <button class="menu-toggle" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="mobile-menu" [class.open]="menuOpen">
+      <a href="#home" (click)="closeMenu()">Home</a>
+      <a href="#about" (click)="closeMenu()">About</a>
+      <a href="#skills" (click)="closeMenu()">Skills</a>
+      <a href="#experience" (click)="closeMenu()">Experience</a>
+      <a href="#projects" (click)="closeMenu()">Projects</a>
+      <a href="#contact" (click)="closeMenu()">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<baner id="home"></baner>
+<personal-information id="about"></personal-information>
+<skills id="skills"></skills>
+<work-experience id="experience"></work-experience>
+<education id="education"></education>
+<projects id="projects"></projects>
+<contact id="contact"></contact>
+
+<footer class="footer">
+  <p>Designed & Built by <span>Madhukar Reddy Parupati</span></p>
+</footer>

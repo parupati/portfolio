@@ -1,16 +1,22 @@
-<div class="container">
-    <h1>Projects</h1>
+<div class="projects-wrapper">
+  <div class="section-header">
+    <span class="section-label">What I've Built</span>
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="section-divider"></div>
+  </div>
 
-    <section *ngFor="let project of projects">
-        <h2>{{project.title}}</h2>
+  <div class="projects-grid">
+    <div class="project-card glass-card" *ngFor="let project of projects; let i = index">
+      <div class="project-number">0{{ i + 1 }}</div>
+      <h3 class="project-title">{{ project.title }}</h3>
 
-        <h3>
-            <span>Technologies: </span>
-            <span>{{project.technologies}}</span>
-        </h3>
+      <div class="tech-tags">
+        <span class="tech-tag" *ngFor="let tech of getTechList(project.technologies)">{{ tech }}</span>
+      </div>
 
-        <ul *ngFor="let desc of project.description">
-            <li>{{desc}}</li>
-        </ul>
-    </section>
+      <ul class="project-desc">
+        <li *ngFor="let d of project.description">{{ d }}</li>
+      </ul>
+    </div>
+  </div>
 </div>

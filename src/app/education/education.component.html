@@ -1,10 +1,23 @@
-<div class="container">
-    <h1>Education</h1>
+<div class="edu-wrapper">
+  <div class="section-header">
+    <span class="section-label">Academic Background</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-divider"></div>
+  </div>
 
-    <section *ngFor="let education of educationList">
-        <h2>{{education.course}}</h2>
-        <h3>{{education.institute}}</h3>
-        <h4>{{education.duration}}</h4>
-        <h4>{{education.score}}</h4>
-    </section>
+  <div class="edu-grid">
+    <div class="edu-card glass-card" *ngFor="let edu of educationList">
+      <div class="edu-icon">
+        <i class='bx bxs-graduation'></i>
+      </div>
+      <div class="edu-info">
+        <h3 class="edu-course">{{ edu.course }}</h3>
+        <p class="edu-institute">{{ edu.institute }}</p>
+        <div class="edu-meta">
+          <span class="edu-duration"><i class='bx bx-calendar'></i> {{ edu.duration }}</span>
+          <span class="edu-score"><i class='bx bx-trophy'></i> {{ edu.score }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

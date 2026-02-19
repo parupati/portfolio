@@ -1,15 +1,34 @@
-<div class="container">
-    <h1>Skills</h1>
+<div class="skills-wrapper">
+  <div class="section-header">
+    <span class="section-label">What I Work With</span>
+    <h2 class="section-title">Skills & Expertise</h2>
+    <div class="section-divider"></div>
+  </div>
 
-    <section *ngFor="let skill of skills">
-        <h2>{{skill.name}}</h2>
-        <h4>{{skill.level}}</h4>
+  <div class="skills-grid">
+    <div class="skill-card glass-card" *ngFor="let skill of skills">
+      <div class="skill-header">
+        <h3 class="skill-name">{{ skill.name }}</h3>
+        <span class="skill-level" [ngClass]="'level-' + skill.level.toLowerCase()">
+          {{ skill.level }}
+        </span>
+      </div>
+      <div class="skill-bar-track">
+        <div class="skill-bar-fill" [style.width]="skill.rating + '%'"></div>
+      </div>
+      <span class="skill-pct">{{ skill.rating }}%</span>
+    </div>
+  </div>
 
-        <div class="rating">
-            <div class="bar">
-                <div [ngStyle]="{'width': skill.rating+'%'}"></div>
-            </div>
-            <div>{{skill.rating}}%</div>
-        </div>
-    </section>
+  <!-- Scrolling tech marquee -->
+  <div class="marquee-section">
+    <p class="marquee-label">Technologies I've worked with</p>
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <span *ngFor="let tech of techList" class="tech-tag">{{ tech }}</span>
+        <!-- duplicate for seamless loop -->
+        <span *ngFor="let tech of techList" class="tech-tag">{{ tech }}</span>
+      </div>
+    </div>
+  </div>
 </div>

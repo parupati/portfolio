@@ -1,5 +1,4 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,22 +6,19 @@ import { Component, HostBinding } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Portfolio';
-  @HostBinding('class.pc') pcMode = false;
+  isScrolled = false;
+  menuOpen = false;
 
-  constructor(private breakpointObserver: BreakpointObserver) {
-    this.breakpointObserver
-      .observe([Breakpoints.HandsetPortrait, Breakpoints.WebLandscape])
-      .subscribe({
-        next: (result: any) => {
-          for (let breakpoint of Object.keys(result.breakpoints))
-            if (result.breakpoints[breakpoint]) {
-              if (breakpoint === Breakpoints.HandsetPortrait)
-                this.pcMode = false;
+  @HostListener('window:scroll')
+  onScroll() {
+    this.isScrolled = window.scrollY > 50;
+  }
 
-              if (breakpoint === Breakpoints.WebLandscape) this.pcMode = true;
-            }
-        },
-      });
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
   }
 }

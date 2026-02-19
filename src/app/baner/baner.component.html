@@ -1,30 +1,64 @@
-<div class="container">
-    <div class="title">
-        <span>My Portfolio</span>
+<div class="hero-blobs">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<div class="hero-container">
+  <div class="hero-content">
+    <p class="hero-greeting">Hi there, I'm</p>
+    <h1 class="hero-name">
+      Madhukar Reddy<br>Parupati
+    </h1>
+    <p class="hero-role">
+      <span class="role-static">A&nbsp;</span>
+      <span class="role-dynamic">{{designation}} Developer</span>
+    </p>
+    <p class="hero-bio">
+      Passionate Frontend Developer with 10+ years of experience crafting
+      beautiful, high-performance web applications using Angular, React, and AWS.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">10+</span>
+        <span class="stat-lbl">Years Exp</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">5+</span>
+        <span class="stat-lbl">Projects</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">15+</span>
+        <span class="stat-lbl">Technologies</span>
+      </div>
     </div>
 
-    <div class="name">
-        <span>
-            <span>Hi,</span> I am
-        </span><br>
-        <span>Madhukar Reddy</span>
-        <span>Parupati</span>
-        <br>
-        <span class="designation">{{designation}}</span><span> Developer</span>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View My Work</a>
+      <a href="#contact" class="btn btn-outline">Let's Connect</a>
     </div>
 
-    <div class="profile">
-        <div><img src="assets/madhu.png" alt=""></div>
-        <div><a href="tel:+16829992094">+1 682-999-2094</a></div>
-        <div><a href="mailto:madhukar.parupati@gmail.com" target="_blank">madhukar.parupati@gmail.com</a></div>
-        <div>
-            <a title="linkedin" class='bx bxl-linkedin' href="https://www.linkedin.com/in/parupati/" target="_blank"></a>
-            <a title="Github" class='bx bxl-github' href="https://github.com/parupati" target="_blank"></a>
-            <a title="Download Resume" class='bx bx-cloud-download' href="assets/MadhuResume.pdf" target="_blank"></a>
-            <a title="Figma" class='bx bxl-figma' href="https://www.figma.com/community/file/1263633339200526590" target="_blank"></a>
-        </div>
-        
-        <!-- <div class="profile-bg"></div> -->
-        <!-- <img src="../../assets/madhu.png" alt=""> -->
+    <div class="hero-social">
+      <a href="https://www.linkedin.com/in/parupati/" target="_blank" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+      <a href="https://github.com/parupati" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+      <a href="assets/MadhuResume.pdf" target="_blank" title="Download Resume"><i class='bx bx-cloud-download'></i></a>
+      <a href="https://www.figma.com/community/file/1263633339200526590" target="_blank" title="Figma"><i class='bx bxl-figma'></i></a>
     </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="image-glow"></div>
+    <div class="image-ring"></div>
+    <div class="image-wrapper">
+      <img src="assets/madhu.png" alt="Madhukar Reddy Parupati">
+    </div>
+  </div>
+</div>
+
+<div class="scroll-indicator">
+  <div class="scroll-line"></div>
+  <span>Scroll</span>
 </div>

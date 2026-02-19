@@ -1,14 +1,28 @@
-<div class="container">
-    <h1>Work Experience</h1>
+<div class="exp-wrapper">
+  <div class="section-header">
+    <span class="section-label">Career Journey</span>
+    <h2 class="section-title">Work Experience</h2>
+    <div class="section-divider"></div>
+  </div>
 
-    <ul>
-        <li *ngFor="let workexp of workExpList">
-            <h2>{{workexp.role}}</h2>
-            <h3>{{workexp.company}}</h3>
-            <h4>{{workexp.duration}}</h4>
-            <ul>
-                <li *ngFor="let desc of workexp.description">{{desc}}</li>
-            </ul>
-        </li>
-    </ul>
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let exp of workExpList; let i = index">
+      <div class="timeline-marker">
+        <div class="marker-dot"></div>
+        <div class="marker-line"></div>
+      </div>
+      <div class="timeline-card glass-card">
+        <div class="card-header">
+          <div>
+            <h3 class="exp-role">{{ exp.role }}</h3>
+            <p class="exp-company">{{ exp.company }}</p>
+          </div>
+          <span class="exp-duration">{{ exp.duration }}</span>
+        </div>
+        <ul class="exp-desc">
+          <li *ngFor="let d of exp.description">{{ d }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
