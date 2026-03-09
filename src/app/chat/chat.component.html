@@ -1,0 +1,81 @@
+<!-- Chat Toggle Button -->
+<button class="chat-fab" (click)="toggleChat()" [class.open]="isOpen" aria-label="Open chat">
+  <i class='bx' [ngClass]="isOpen ? 'bx-x' : 'bx-bot'"></i>
+  <span class="fab-tooltip" *ngIf="!isOpen">Chat with AI</span>
+</button>
+
+<!-- Chat Window -->
+<div class="chat-window" [class.visible]="isOpen" role="dialog" aria-label="Chat with Madhukar's AI">
+
+  <!-- Header -->
+  <div class="chat-header">
+    <div class="chat-header-info">
+      <div class="chat-avatar">
+        <i class='bx bx-bot'></i>
+      </div>
+      <div>
+        <div class="chat-title">Madhukar's AI</div>
+        <div class="chat-status">
+          <span class="status-dot" [class.loading]="isLoading"></span>
+          {{ isLoading ? 'Typing...' : 'Online' }}
+        </div>
+      </div>
+    </div>
+    <button class="chat-close" (click)="closeChat()" aria-label="Close chat">
+      <i class='bx bx-x'></i>
+    </button>
+  </div>
+
+  <!-- Messages -->
+  <div class="chat-messages" #messagesContainer>
+    <div
+      *ngFor="let msg of messages"
+      class="message"
+      [ngClass]="msg.role === 'user' ? 'message-user' : 'message-assistant'"
+    >
+      <div class="message-avatar" *ngIf="msg.role === 'assistant'">
+        <i class='bx bx-bot'></i>
+      </div>
+      <div class="message-bubble">
+        <span>{{ msg.content }}</span>
+        <span class="cursor" *ngIf="msg.streaming && msg.content"></span>
+        <span class="typing-dots" *ngIf="msg.streaming && !msg.content">
+          <span></span><span></span><span></span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div class="chat-input-area">
+    <textarea
+      #inputEl
+      class="chat-input"
+      [(ngModel)]="inputText"
+      (keydown)="onKeydown($event)"
+      placeholder="Ask about skills, experience..."
+      rows="1"
+      [disabled]="isLoading"
+      aria-label="Chat input"
+    ></textarea>
+    <button
+      *ngIf="!isLoading"
+      class="send-btn"
+      (click)="sendMessage()"
+      [disabled]="!inputText.trim()"
+      aria-label="Send message"
+    >
+      <i class='bx bx-send'></i>
+    </button>
+    <button
+      *ngIf="isLoading"
+      class="stop-btn"
+      (click)="stopGeneration()"
+      aria-label="Stop generation"
+    >
+      <i class='bx bx-stop'></i>
+    </button>
+  </div>
+
+  <div class="chat-footer">Powered by Claude AI</div>
+</div>

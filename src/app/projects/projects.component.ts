@@ -22,9 +22,27 @@ export class ProjectsComponent {
         'Supports both batch and real-time streaming (SSE) modes; FastAPI backend runs in Docker on port 8000 with a Node.js/Express UI on port 3000.',
       ],
     },
+    {
+      title: 'Aviation Disruption RAG',
+      subtitle: 'Retrieval-Augmented Generation for Aviation Intelligence',
+      tag: 'RAG · LLM',
+      technologies: 'Python, FastAPI, LangChain, ChromaDB, HuggingFace, OpenAI GPT-4o, Hugging Face Spaces, Docker',
+      githubUrl: 'https://github.com/parupati/IranUSAviationDisruptionRAG',
+      demoUrl: '/aviationRag',
+      description: [
+        'RAG system built on the Global Civil Aviation Disruption 2026 dataset — covering airline losses, airport disruptions, airspace closures, flight cancellations, and reroutes from the Iran-US conflict.',
+        'CSV data is converted to natural language chunks, embedded using HuggingFace sentence-transformers (all-MiniLM-L6-v2) on CPU, and indexed in a local ChromaDB vector store.',
+        'FastAPI backend exposes a /query endpoint that retrieves the top-k relevant chunks via similarity search and feeds them to GPT-4o for grounded answer generation.',
+        'Deployed as a Docker container on Hugging Face Spaces with an interactive chat UI integrated into this portfolio.',
+      ],
+    },
   ];
 
   getTechList(technologies: string): string[] {
     return technologies.split(',').map(t => t.trim());
+  }
+
+  isExternalUrl(url: string): boolean {
+    return url.startsWith('http');
   }
 }
