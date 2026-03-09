@@ -14,7 +14,10 @@
           <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" title="View on GitHub" class="project-link">
             <i class='bx bxl-github'></i>
           </a>
-          <a *ngIf="project.demoUrl" [href]="project.demoUrl" target="_blank" title="Live Demo" class="project-link">
+          <a *ngIf="project.demoUrl && isExternalUrl(project.demoUrl)" [href]="project.demoUrl" target="_blank" title="Live Demo" class="project-link">
+            <i class='bx bx-link-external'></i>
+          </a>
+          <a *ngIf="project.demoUrl && !isExternalUrl(project.demoUrl)" [routerLink]="project.demoUrl" title="Live Demo" class="project-link">
             <i class='bx bx-link-external'></i>
           </a>
           <span *ngIf="!project.demoUrl" class="demo-soon" title="Demo coming soon">

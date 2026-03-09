@@ -1,4 +1,4 @@
-<nav class="navbar" [class.scrolled]="isScrolled">
+<nav class="navbar" [class.scrolled]="isScrolled" *ngIf="isHome">
   <div class="nav-container">
     <a class="nav-logo" href="#home"></a>
     <ul class="nav-links">
@@ -30,14 +30,10 @@
   </div>
 </nav>
 
-<baner id="home"></baner>
-<personal-information id="about"></personal-information>
-<skills id="skills"></skills>
-<work-experience id="experience"></work-experience>
-<education id="education"></education>
-<projects id="projects"></projects>
-<contact id="contact"></contact>
+<router-outlet></router-outlet>
 
-<footer class="footer">
+<footer class="footer" *ngIf="isHome">
   <p>Designed & Built by <span>Madhukar Reddy Parupati</span></p>
 </footer>
+
+<app-chat *ngIf="isHome"></app-chat>
