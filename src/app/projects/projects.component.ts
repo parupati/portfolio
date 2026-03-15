@@ -36,6 +36,20 @@ export class ProjectsComponent {
         'Deployed as a Docker container on Hugging Face Spaces with an interactive chat UI integrated into this portfolio.',
       ],
     },
+    {
+      title: 'Aviation RAG — Azure Production',
+      subtitle: 'Enterprise RAG with Live Article Ingestion',
+      tag: 'Azure · RAG',
+      technologies: 'Python, FastAPI, Azure OpenAI, Azure AI Search, Azure Blob Storage, Azure Container Apps, Docker',
+      githubUrl: '',
+      demoUrl: '/aviationRagAzure',
+      description: [
+        'Production-grade RAG system on Azure — ingests live articles from RSS feeds, manual URL scraping, and file uploads (PDF/Word/text) into Azure AI Search.',
+        'Uses Azure OpenAI text-embedding-3-small for vector embeddings and GPT-4o for answer generation, with hybrid search combining BM25 keyword matching and vector similarity.',
+        'Automated ingestion pipeline runs every 6 hours via Azure Container Apps scheduled jobs, with deduplication and 800-token chunking.',
+        'Deployed as an Azure Container App with FastAPI, integrated into this portfolio alongside the local ChromaDB prototype for comparison.',
+      ],
+    },
   ];
 
   getTechList(technologies: string): string[] {

@@ -16,6 +16,7 @@ import { ResponsiveDirective } from './directives/responsive.directive';
 import { ChatComponent } from './chat/chat.component';
 import { HomeComponent } from './home/home.component';
 import { AviationRagChatComponent } from './aviation-rag-chat/aviation-rag-chat.component';
+import { AviationRagAzureComponent } from './aviation-rag-azure/aviation-rag-azure.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AviationRagChatComponent } from './aviation-rag-chat/aviation-rag-chat.
     ChatComponent,
     HomeComponent,
     AviationRagChatComponent,
+    AviationRagAzureComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
