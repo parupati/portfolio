@@ -1,0 +1,95 @@
+<div class="rag-page">
+
+  <!-- Header -->
+  <div class="rag-header">
+    <div class="rag-header-inner">
+      <a routerLink="/" class="back-link">
+        <i class='bx bx-arrow-back'></i>
+        <span>Portfolio</span>
+      </a>
+      <div class="rag-title-group">
+        <h1 class="rag-title">
+          <i class='bx bx-cloud'></i>
+          Aviation RAG — Azure
+        </h1>
+        <p class="rag-subtitle">Azure AI Search + GPT-4o — Hybrid Search with Live Article Ingestion</p>
+      </div>
+      <div class="rag-badge">
+        <span class="badge-dot"></span>
+        Powered by Azure OpenAI + AI Search
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat area -->
+  <div class="rag-chat-container">
+
+    <!-- Messages -->
+    <div class="rag-messages" #messagesContainer>
+
+      <div *ngFor="let msg of messages"
+           class="rag-msg"
+           [ngClass]="msg.role === 'user' ? 'rag-msg-user' : 'rag-msg-assistant'">
+        <div class="rag-msg-avatar" *ngIf="msg.role === 'assistant'">
+          <i class='bx bx-cloud'></i>
+        </div>
+        <div class="rag-msg-body">
+          <div class="rag-msg-bubble">
+            <span class="typing-dots" *ngIf="msg.loading">
+              <span></span><span></span><span></span>
+            </span>
+            <span *ngIf="!msg.loading">{{ msg.content }}</span>
+          </div>
+          <button class="sources-toggle"
+                  *ngIf="msg.sources && msg.sources.length > 0"
+                  (click)="toggleSources(msg)">
+            <i class='bx' [ngClass]="showSources(msg) ? 'bx-chevron-up' : 'bx-chevron-down'"></i>
+            {{ showSources(msg) ? 'Hide' : 'Show' }} {{ msg.sources.length }} sources
+          </button>
+          <div class="sources-list" *ngIf="showSources(msg) && msg.sources">
+            <div class="source-item" *ngFor="let src of msg.sources">
+              <div class="source-header">
+                <span class="source-badge">{{ src.source_type }}</span>
+                <span class="source-title">{{ src.title }}</span>
+              </div>
+              <span class="source-text">{{ src.content }}</span>
+              <a *ngIf="src.url" [href]="src.url" target="_blank" class="source-link">View source</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="examples-grid" *ngIf="messages.length === 1">
+        <button class="example-btn" *ngFor="let ex of examples" (click)="askExample(ex)">
+          <i class='bx bx-search-alt'></i>
+          {{ ex }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="rag-input-area">
+      <textarea
+        #inputEl
+        class="rag-input"
+        [(ngModel)]="inputText"
+        (keydown)="onKeydown($event)"
+        placeholder="Ask about aviation disruptions, airline losses, airspace closures..."
+        rows="1"
+        [disabled]="isLoading"
+      ></textarea>
+      <button *ngIf="!isLoading"
+              class="rag-send-btn"
+              (click)="sendMessage()"
+              [disabled]="!inputText.trim()">
+        <i class='bx bx-send'></i>
+      </button>
+      <button *ngIf="isLoading"
+              class="rag-stop-btn"
+              (click)="stopGeneration()">
+        <i class='bx bx-stop'></i>
+      </button>
+    </div>
+
+  </div>
+</div>
