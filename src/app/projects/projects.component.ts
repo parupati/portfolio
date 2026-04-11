@@ -9,6 +9,20 @@ import { Project } from '../models/models';
 export class ProjectsComponent {
   projects: Project[] = [
     {
+      title: 'AI Job Hunt Agent — n8n',
+      subtitle: 'Daily ATS Resume Tailoring Workflow',
+      tag: 'Automation · n8n',
+      technologies: 'n8n, Docker, SerpAPI, OpenAI GPT-4o, Google Drive API, Google Docs API, Gmail API',
+      githubUrl: 'https://github.com/parupati/AI_Job_Hunt_N8N',
+      demoUrl: '',
+      description: [
+        'Built a local n8n automation that runs daily at 7 AM and fetches fresh job listings posted in the last 24 hours.',
+        'Pipeline extracts top 5 roles, reads base resume from Google Drive, and uses GPT-4o to generate ATS-optimized tailored resumes per job description.',
+        'Creates one Google Doc per tailored resume and sends a structured email report with job links and resume document links.',
+        'Containerized with Docker for quick local setup and repeatable execution with secured credential-based integrations.',
+      ],
+    },
+    {
       title: 'AI Agents — PRD to Architecture',
       subtitle: 'Agentic Pre-Development Accelerator',
       tag: 'A2A · AI Agents',
